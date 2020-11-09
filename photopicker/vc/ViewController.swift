@@ -34,6 +34,12 @@ class ViewController: UIViewController, AlertViewDelegate {
         self.loadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    
     @IBAction func addAction(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         

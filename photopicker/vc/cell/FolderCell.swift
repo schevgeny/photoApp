@@ -10,6 +10,7 @@ import UIKit
 
 class FolderCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel?
+    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     
     var delegate: AlertViewDelegate?
     var model: DirInfo?
@@ -19,5 +20,7 @@ class FolderCell: UICollectionViewCell {
         self.model = model
         
         nameLabel?.text = model.title
+        
+        widthConstraint.constant = (UIScreen.main.bounds.width - 8 * 6) / 3 - 4
     }
 }

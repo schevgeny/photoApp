@@ -40,6 +40,8 @@ class ImageManager {
     }
     
     func folderBack(){
+        guard  folderTree.count > 0  else { return }
+        
         self.dataSource = folderTree.removeLast()
     }
     
@@ -83,6 +85,10 @@ class ImageManager {
     func getLastPathComponent(by num: Int) -> String {
         guard let imageUrl = ImageManager.shared.dataSource.images[num].getUrl() else {return ""}
         return imageUrl.lastPathComponent
+    }
+    
+    func reset(){
+        UserDefaults.standard.set(encodable: DirInfo(title: "root"), forKey: "images")
     }
     
     private func save(){
